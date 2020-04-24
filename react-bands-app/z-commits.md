@@ -2,6 +2,6 @@
 
 001 - Setup React and basic data call
 
-c3 - Added components basic Bands (iterated) and Navbar
+03 - Added components basic Bands (iterated) and Navbar
 
 
