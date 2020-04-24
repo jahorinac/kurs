@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from "./components/Navbar";
+import BandsList from "./components/BandsList";
 
 class App extends React.Component{
 
-    state={
+    state = {
         bands: []
     };
 
@@ -12,13 +14,18 @@ class App extends React.Component{
                 return res.json()
             })
             .then(data => {
-                console.log(data)
+                this.setState({
+                    bands:data
+                })
             })
     }
 
     render(){
         return(
-            <h1>App Component</h1>
+            <>
+                <Navbar />
+                <BandsList bands={this.state.bands}/>
+            </>
         )
     }
 }
