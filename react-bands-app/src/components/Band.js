@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Band.module.css';
 
 const Band = ({ band, changeCurrentBand }) => {
-    console.log(changeCurrentBand)
   return(
       <div className="card mt-3">
           <div className="card-header">

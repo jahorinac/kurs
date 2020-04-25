@@ -1,20 +1,33 @@
 import React from 'react'
 import Navbar from "./components/Navbar";
 import BandsList from "./components/BandsList";
-import Modal from "./components/Modal";
+import ModalDialog from "./components/Modal";
 
 class App extends React.Component{
 
     state = {
         bands: [],
-        currentBand: {}
+        currentBand: {},
+        show: false
     };
 
     changeCurrentBand = (band) => {
-        console.log(band)
-
         this.setState({
             currentBand: band
+        });
+
+        this.handleShow()
+    };
+
+    handleClose = () => {
+        this.setState({
+            show: false
+        })
+    };
+
+    handleShow = () => {
+        this.setState({
+            show: true
         })
     };
 
@@ -36,7 +49,7 @@ class App extends React.Component{
             <>
                 <Navbar />
                 <BandsList bands={this.state.bands} changeCurrentBand={this.changeCurrentBand}/>
-                <Modal currentBand={this.state.currentBand}/>
+                <ModalDialog show={this.state.show} handleClose={this.handleClose} currentBand={this.state.currentBand}/>
             </>
         )
     }
