@@ -1,11 +1,21 @@
 import React from 'react'
 import Navbar from "./components/Navbar";
 import BandsList from "./components/BandsList";
+import Modal from "./components/Modal";
 
 class App extends React.Component{
 
     state = {
-        bands: []
+        bands: [],
+        currentBand: {}
+    };
+
+    changeCurrentBand = (band) => {
+        console.log(band)
+
+        this.setState({
+            currentBand: band
+        })
     };
 
     componentDidMount() {
@@ -21,10 +31,12 @@ class App extends React.Component{
     }
 
     render(){
+        console.log(this.state)
         return(
             <>
                 <Navbar />
-                <BandsList bands={this.state.bands}/>
+                <BandsList bands={this.state.bands} changeCurrentBand={this.changeCurrentBand}/>
+                <Modal currentBand={this.state.currentBand}/>
             </>
         )
     }
