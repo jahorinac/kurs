@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+import Ball from './Ball/Ball'
 
 function App(){
 
-    const [name, changeName] = useState('');
-
     return(
-        <div className="container text-center">
-            <h1>{ name }</h1>
-            <input type="text" onChange={ (e)=> changeName(e.target.value) }/>
-        </div>
+        <Ball/>
     )
 }
 
