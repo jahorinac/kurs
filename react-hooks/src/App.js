@@ -1,10 +1,12 @@
 import React from 'react'
-import Ball from './Ball/Ball'
+//import Ball from './Ball/Ball'
+//import Account from './Account/Account'
+import NameList from './NameList/NameList'
 
 function App(){
 
     return(
-        <Ball/>
+        <NameList/>
     )
 }
 
