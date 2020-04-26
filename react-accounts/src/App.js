@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import Header from "./components/Header/Header";
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AccountsTable from "./components/AccountsTable/AccountsTable";
 import AddAccount from './components/AddAccount/AddAccount';
 import EditTable from './components/EditTable/EditTable'
+import EditAccount from './components/EditAccount/EditAccount';
 
 
 class App extends Component{
@@ -29,7 +30,16 @@ class App extends Component{
         this.setState({
             accounts: newCopyAccount
         })
-    }
+    };
+
+    editAccount = (acc) => {
+        const copyAccounts = [...this.state.accounts]
+        let accountPosition = copyAccounts.map(account => account.id ).indexOf(acc.id)
+        copyAccounts[accountPosition] = acc;
+        this.setState({
+            accounts: copyAccounts
+        })
+    };
 
     render() {
         return(
@@ -41,9 +51,14 @@ class App extends Component{
                 <Route path='/add'>
                     <AddAccount addNewAccountToState={this.addNewAccountToState}/>
                 </Route>
-                <Route path="/edit">
-                    <EditTable accounts={this.state.accounts} deleteAccount={this.deleteAccount}/>
-                </Route>
+                <Switch>
+                    <Route path="/edit/:id">
+                        <EditAccount accounts={this.state.accounts} editAccount={this.editAccount}/>
+                    </Route>
+                    <Route path="/edit">
+                        <EditTable accounts={this.state.accounts} deleteAccount={this.deleteAccount}/>
+                    </Route>
+                </Switch>
             </BrowserRouter>
         )
     }
