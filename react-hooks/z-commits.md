@@ -7,4 +7,5 @@
 19 - useEffect() - execute code after component mounted
 20 - Context - simple example of Context
 21 - useContext - simple use Context.Consumer
+22 - useRef - used for connection with DOM, focus input field
 
