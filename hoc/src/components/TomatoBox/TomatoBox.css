@@ -1,0 +1,11 @@
+.TomatoBox {
+    width: 33%;
+    height: 200px;
+    background: tomato;
+    float: left;
+    text-align:center;
+    font-size: 100px;
+    color: white;
+    line-height: 200px;
+    user-select:none;
+}
