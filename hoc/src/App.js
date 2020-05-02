@@ -7,7 +7,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <TomatoBox/>
+                <TomatoBox name="Danilo"/>
                 <CadetBox/>
             </div>
         )
